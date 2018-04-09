@@ -3,7 +3,7 @@ with rn as(
         session_id,
         event_name,
         ROW_NUMBER() OVER(
-            PARTITION BY CONCAT(user_cid, '_', FORMAT_TIMESTAMP('%x %H%M', date_time), '_', ctx_platform_norm)
+            PARTITION BY session_id
         order by
             date_time
         ) event_number
