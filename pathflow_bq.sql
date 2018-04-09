@@ -1,6 +1,6 @@
 with rn as(
     select
-        CONCAT(user_cid, '_', FORMAT_TIMESTAMP('%x %H%M', date_time), '_', ctx_platform_norm) AS session_id,
+        session_id,
         event_name,
         ROW_NUMBER() OVER(
             PARTITION BY CONCAT(user_cid, '_', FORMAT_TIMESTAMP('%x %H%M', date_time), '_', ctx_platform_norm)
